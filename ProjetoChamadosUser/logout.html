@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <p></p>
+    <title>Logout</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles-daltonicos.css" id="daltonic-style" disabled>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script>
+        function toggleMenu() {
+            const sidebar = document.querySelector('.sidebar');
+            const body = document.body;
+
+            if (sidebar.classList.contains('open')) {
+                sidebar.classList.remove('open');
+                body.classList.remove('menu-open');
+            } else {
+                sidebar.classList.add('open');
+                body.classList.add('menu-open');
+            }
+        }
+        function toggleDaltonicMode() {
+            const daltonicStyle = document.getElementById('daltonic-style');
+            const defaultStyle = document.getElementById('default-style');
+
+            if (daltonicStyle.disabled) {
+                daltonicStyle.disabled = false;
+                defaultStyle.disabled = true;
+            } else {
+                daltonicStyle.disabled = true;
+                defaultStyle.disabled = false;
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <header class="header">
+        <div class="user-info">
+            <i class="fas fa-user"></i> <span id="user-name">Ten Silva</span>
+        </div>
+        <div class="header-icons">
+            <i class="fas fa-bell"></i><span class="notification-count"></span>
+            <i class="fas fa-question-circle"></i>
+            <i class="fas fa-cogs"></i>
+            <i class="fas fa-comment-dots"></i>
+            <i class="fas fa-search"></i>
+            <i class="fas fa-envelope"></i>
+        </div>
+        <button class="color-blind-mode" onclick="toggleDaltonicMode()">Modo Daltônico</button>
+
+    </header>
+
+    <div class="menu-toggle" onclick="toggleMenu()">
+        <span>&#9776;</span>
+    </div>
+
+
+    <div class="container">
+        <h1>Logout</h1>
+        <p>Você foi deslogado com sucesso.</p>
+        <a href="index.html" class="btn-voltar">Voltar para o Login</a>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
