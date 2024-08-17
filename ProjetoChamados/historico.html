@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histórico de Chamados</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles-daltonicos.css" id="daltonic-style" disabled>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script>
+        function toggleMenu() {
+            const sidebar = document.querySelector('.sidebar');
+            const body = document.body;
+
+            if (sidebar.classList.contains('open')) {
+                sidebar.classList.remove('open');
+                body.classList.remove('menu-open');
+            } else {
+                sidebar.classList.add('open');
+                body.classList.add('menu-open');
+            }
+        }
+
+        function confirmarCancelamento(chamadoId, elemento) {
+            if (confirm('Tem certeza de que deseja cancelar este chamado?')) {
+                const card = elemento.parentElement;
+                card.remove();  // Remove o cartão da página
+                
+                // Aqui você pode adicionar código para enviar a remoção para o servidor, se necessário
+            }
+        }
+
+        function toggleDaltonicMode() {
+            const daltonicStyle = document.getElementById('daltonic-style');
+            const defaultStyle = document.getElementById('default-style');
+
+            if (daltonicStyle.disabled) {
+                daltonicStyle.disabled = false;
+                defaultStyle.disabled = true;
+            } else {
+                daltonicStyle.disabled = true;
+                defaultStyle.disabled = false;
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <header class="header">
+        <div class="user-info">
+            <i class="fas fa-user"></i> <span id="user-name">Sgt Monteiro</span>
+        </div>
+        <div class="header-icons">
+            <i class="fas fa-bell"></i><span class="notification-count"></span>
+            <i class="fas fa-question-circle"></i>
+            <i class="fas fa-cogs"></i>
+            <i class="fas fa-comment-dots"></i>
+            <i class="fas fa-search"></i>
+            <i class="fas fa-envelope"></i>
+        </div>
+        <button class="color-blind-mode" onclick="toggleDaltonicMode()">Modo Daltônico</button>
+    </header>
+
+    <div class="menu-toggle" onclick="toggleMenu()">
+        <span>&#9776;</span>
+    </div>
+
+    <nav class="sidebar">
+        <ul>
+            <img src="https://logodownload.org/wp-content/uploads/2018/02/exercito-brasileiro-logo-2.png" alt="Logo do Exército Brasileiro" style="width: 50px; display: block; margin: 0 auto 20px;">
+            <li><a href="historico.html"><i class="fas fa-history icon"></i> <span>Histórico de Chamados</span></a></li>
+            <li><a href="abrir-chamado.html"><i class="fas fa-plus icon"></i> <span>Abrir Chamado</span></a></li>
+            <li><a href="chamados-abertos.html"><i class="fas fa-folder-open icon"></i> <span>Chamados em Aberto</span></a></li>
+            <li><a href="usuarios-cadastrados.html"><i class="fas fa-users icon"></i> <span>Usuários Cadastrados</span></a></li>
+            <li><a href="cadastrar-usuario.html"><i class="fas fa-user-plus icon"></i> <span>Cadastrar Novo Usuário</span></a></li>
+            <li><a href="logout.html"><i class="fas fa-sign-out-alt icon"></i> <span>Logout</span></a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h2>Histórico de Chamados</h2>
+        <div class="card-container">
+            <!-- Exemplos -->
+            <li id="chamado1" class="chamado-item urgency-high">
+                <div class="chamado-info">
+                    <p><strong>Solicitante:</strong> Ten Silva</p>
+                    <p><strong>Categoria:</strong> SPED</p>
+                    <p><strong>Descrição:</strong> 
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempus lectus quis iaculis mattis. Integer at enim congue, eleifend purus.</p>
+                    <p><strong>Urgência:</strong> Alta</p>
+                    <p><strong>Data e Hora:</strong> 14/08/2024 10:00</p>
+                    <p><strong>Status:</strong> <span class="status">Fechado</span></p>
+                </div>
+            </li>
+            <li id="chamado1" class="chamado-item urgency-low">
+                <div class="chamado-info">
+                    <p><strong>Solicitante:</strong> Ten Silva</p>
+                    <p><strong>Categoria:</strong> Hardware</p>
+                    <p><strong>Descrição:</strong> 
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempus lectus quis iaculis mattis. Integer at enim congue, eleifend purus.</p>
+                    <p><strong>Urgência:</strong> Baixa</p>
+                    <p><strong>Data e Hora:</strong> 14/08/2024 10:00</p>
+                    <p><strong>Status:</strong> <span class="status">Fechado</span></p>
+                </div>
+            </li>
+            <li id="chamado1" class="chamado-item urgency-medium">
+                <div class="chamado-info">
+                    <p><strong>Solicitante:</strong> Sgt Jonathan</p>
+                    <p><strong>Categoria:</strong> Antivirus</p>
+                    <p><strong>Descrição:</strong> 
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempus lectus quis iaculis mattis. Integer at enim congue, eleifend purus.</p>
+                    <p><strong>Urgência:</strong> Média</p>
+                    <p><strong>Data e Hora:</strong> 14/08/2024 10:00</p>
+                    <p><strong>Status:</strong> <span class="status">Fechado</span></p>
+                </div>
+            </li>
+        </div>
+    </div>
+
+    
+    <script src="script.js"></script>
+</body>
+</html>
