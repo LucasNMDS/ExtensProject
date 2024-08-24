@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Sistema de Suporte</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="container">
+
+        <img src="https://logodownload.org/wp-content/uploads/2018/02/exercito-brasileiro-logo-2.png" alt="Logo do Exército Brasileiro" style="width: 100px; display: block; margin: 0 auto 20px;">
+        </a>
+        <form id="loginForm">
+            <label for="login">Login:</label>
+            <input type="text" id="login" name="login" required>
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required>
+            <button type="submit">Entrar</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            window.location.href = 'historico.html';
+        });
+    </script>
+</body>
+</html>
